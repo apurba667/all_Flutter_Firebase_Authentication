@@ -2,6 +2,7 @@ import 'package:allfirebaseauth/servises/firebase_auth_methods.dart';
 import 'package:allfirebaseauth/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OtpNumber extends StatefulWidget {
   const OtpNumber({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _OtpNumberState extends State<OtpNumber> {
     phoneController.dispose();
   }
   void phoneSignIn(){
-    FirebaseAuthMethods(FirebaseAuth.instance).phoneSignIn(context, phoneController.text);
+    context.read<FirebaseAuthMethods>().phoneSignIn(context,phoneController.text);
   }
 
   @override
